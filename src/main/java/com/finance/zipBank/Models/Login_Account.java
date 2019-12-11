@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Login_Credentials {
+public class Login_Account {
     @Id
     private Long id;
     private String userName;
