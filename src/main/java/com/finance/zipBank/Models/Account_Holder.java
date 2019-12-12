@@ -1,5 +1,7 @@
 package com.finance.zipBank.Models;
 
+import com.finance.zipBank.Service.AccountHolderService;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
@@ -13,7 +15,6 @@ public class Account_Holder {
     private Integer address_Id;
     private Integer phone_Number;
     private String email;
-    private String social_Security;
     private Date last_Updated;
 
 
@@ -64,14 +65,6 @@ public class Account_Holder {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSocial_Security() {
-        return social_Security;
-    }
-
-    public void setSocial_Security(String social_Security) {
-        this.social_Security = social_Security;
     }
 
     public Date getLast_Updated() {

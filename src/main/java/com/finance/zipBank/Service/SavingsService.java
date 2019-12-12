@@ -1,11 +1,11 @@
 package com.finance.zipBank.Service;
 
-import com.finance.zipBank.Models.Checking;
 import com.finance.zipBank.Models.Savings;
-import com.finance.zipBank.Repositories.Checking_Repo;
 import com.finance.zipBank.Repositories.Savings_Repo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SavingsService {
 
     @Autowired
@@ -30,8 +30,6 @@ public class SavingsService {
     }
 
     ///updating accounts
-
-
     public Savings updateSavingsAccount(Long id, Savings savings){
         //business logic
         return savings;

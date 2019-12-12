@@ -1,11 +1,9 @@
 package com.finance.zipBank.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Date;
 
-@Entity
-public class Transaction_History {
+import javax.persistence.Id;
+
+public class SavingsTransaction {
     @Id
     private Long transaction_Id;
     private Long account_Id;
@@ -70,6 +68,4 @@ public class Transaction_History {
     public void setAmount(Double amount) {
         this.amount = amount;
     }
-
-
 }

@@ -1,11 +1,10 @@
 package com.finance.zipBank.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Date;
+import com.finance.zipBank.Service.CheckingTransactionService;
 
-@Entity
-public class Archived_Transaction_History {
+import javax.persistence.Id;
+
+public class CheckingTransactions  {
     @Id
     private Long transaction_Id;
     private Long account_Id;

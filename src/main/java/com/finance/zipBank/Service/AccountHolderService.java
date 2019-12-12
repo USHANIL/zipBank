@@ -1,6 +1,7 @@
 package com.finance.zipBank.Service;
 
 
+import com.finance.zipBank.Controllers.AccountHolderController;
 import com.finance.zipBank.Models.Login_Account;
 import com.finance.zipBank.Repositories.Account_Holder_Repo;
 import com.finance.zipBank.Repositories.Login_Account_Repo;
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AccountHolderService {
+public class AccountHolderService extends AccountHolderController {
     @Autowired
     private Account_Holder_Repo accountHolderRepo;
 

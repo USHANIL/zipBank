@@ -1,10 +1,12 @@
 package com.finance.zipBank.Models;
 
+import com.finance.zipBank.Service.SavingsService;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
 @Entity
-public class Savings {
+public class Savings extends Account{
     @Id
     private Long accountId;
     private Long accountNumber;
@@ -16,39 +18,4 @@ public class Savings {
         return accountId;
     }
 
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
-
-    public Long getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(Long accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public Long getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Long balance) {
-        this.balance = balance;
-    }
-
-    public Long getStatusId() {
-        return statusId;
-    }
-
-    public void setStatusId(Long statusId) {
-        this.statusId = statusId;
-    }
-
-    public Date getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
-    }
 }

@@ -1,15 +1,15 @@
 package com.finance.zipBank.Service;
 
 
+import com.finance.zipBank.Controllers.CheckingController;
 import com.finance.zipBank.Models.Checking;
-import com.finance.zipBank.Models.Savings;
 import com.finance.zipBank.Repositories.Checking_Repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class CheckingService {
+public class CheckingService  {
     @Autowired
     private Checking_Repo checking_repo;
 
@@ -36,10 +36,6 @@ public class CheckingService {
         return checking;
     }
 
-    public Savings updateSavingsAccount(Long id, Savings savings){
-        //business logic
-        return savings;
-    }
 
 
 
