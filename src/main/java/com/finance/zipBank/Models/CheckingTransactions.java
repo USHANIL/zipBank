@@ -1,6 +1,5 @@
 package com.finance.zipBank.Models;
 
-import com.finance.zipBank.Service.CheckingTransactionService;
 
 import javax.persistence.Id;
 

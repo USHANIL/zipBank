@@ -10,7 +10,7 @@ public class Login_Account {
     private Long id;
     private String userName;
     private String password;
-    private Long accountId;
+    private Account_Holder account_holder;
     private Date lastLogin;
     private Date lastUpdated;
 
@@ -38,12 +38,12 @@ public class Login_Account {
         this.password = password;
     }
 
-    public Long getAccountId() {
-        return accountId;
+    public Account_Holder getAccount_holder() {
+        return account_holder;
     }
 
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
+    public void setAccount_holder(Account_Holder account_holder) {
+        this.account_holder = account_holder;
     }
 
     public Date getLastLogin() {
