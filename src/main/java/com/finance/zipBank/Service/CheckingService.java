@@ -4,11 +4,9 @@ package com.finance.zipBank.Service;
 import com.finance.zipBank.Models.Checking;
 import com.finance.zipBank.Models.Savings;
 import com.finance.zipBank.Repositories.Checking_Repo;
-import com.finance.zipBank.Repositories.Savings_Repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
 public class CheckingService {
