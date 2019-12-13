@@ -2,6 +2,7 @@ package com.finance.zipBank.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.Date;
 
 @Entity
@@ -10,6 +11,7 @@ public class Login_Account {
     private Long id;
     private String userName;
     private String password;
+    @OneToOne
     private Account_Holder account_holder;
     private Date lastLogin;
     private Date lastUpdated;

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AccountHolderService extends AccountHolderController {
+public class AccountHolderService {
     @Autowired
     private Account_Holder_Repo accountHolderRepo;
 

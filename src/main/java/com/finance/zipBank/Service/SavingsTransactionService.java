@@ -1,6 +1,5 @@
 package com.finance.zipBank.Service;
 
-import com.finance.zipBank.Controllers.SavingsTransactionController;
 import com.finance.zipBank.Models.SavingsTransaction;
 import com.finance.zipBank.Repositories.SavingsTransactionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 @Service
-public class SavingsTransactionService extends SavingsTransactionController {
+public class SavingsTransactionService{
 
     @Autowired
     private SavingsTransactionRepo savingsTransactionRepo;

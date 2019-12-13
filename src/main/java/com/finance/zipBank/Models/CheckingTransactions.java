@@ -1,8 +1,9 @@
 package com.finance.zipBank.Models;
 
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
-
+@Entity
 public class CheckingTransactions  {
     @Id
     private Long transaction_Id;

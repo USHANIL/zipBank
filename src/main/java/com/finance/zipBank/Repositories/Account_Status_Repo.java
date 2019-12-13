@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Account_Status_Repo extends CrudRepository<Long, Account_Status> {
+public interface Account_Status_Repo extends CrudRepository<Account_Status, Long> {
 }

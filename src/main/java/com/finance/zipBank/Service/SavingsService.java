@@ -11,8 +11,7 @@ public class SavingsService {
     @Autowired
     private Savings_Repo savings_repo;
 
-    //creating checking and savings/ finding them by id
-
+    //creating checking and savings/ finding them by i
 
     public Savings createSavings(Savings savings){
         return savings_repo.save(savings);
