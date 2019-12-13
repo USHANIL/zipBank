@@ -9,12 +9,6 @@ import java.util.Date;
 
 @Entity
 public class Checking extends Account{
-    @Id
-    private Long accountId;
-    private Long accountNumber;
-    private Long balance;
-    private Long statusId;
-    private Date lastUpdated;
-
-
+    public Checking() {
+    }
 }

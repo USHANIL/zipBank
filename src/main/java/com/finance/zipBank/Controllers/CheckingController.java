@@ -38,6 +38,10 @@ public class CheckingController {
     public ResponseEntity<Checking> updateCheckingAccount(@PathVariable Long accountId, @RequestBody Checking checking){
         return new ResponseEntity<>(checkingService.updateCheckingAccount(accountId, checking), HttpStatus.OK);
     }
+    @GetMapping("/test")
+    public String testMe(){
+        return "it defenietly Works";
+    }
 
 
 }

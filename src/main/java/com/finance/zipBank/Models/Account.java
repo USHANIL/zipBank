@@ -1,7 +1,8 @@
 package com.finance.zipBank.Models;
 
+import javax.persistence.Entity;
 import java.util.Date;
-
+@Entity
 public abstract class Account{
 
     private Long accountId;
