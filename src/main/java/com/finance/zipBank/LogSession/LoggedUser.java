@@ -10,12 +10,10 @@ import java.util.List;
 @Component
 public class LoggedUser  implements HttpSessionBindingListener {
     private String username;
-    private String password;
     private ActiveUserStore activeUserStore;
 
     public LoggedUser (String username, String password, ActiveUserStore activeUserStore){
         this.username = username;
-        this.password = password;
         this.activeUserStore = activeUserStore;
     }
 
@@ -35,14 +33,6 @@ public class LoggedUser  implements HttpSessionBindingListener {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public ActiveUserStore getActiveUserStore() {

@@ -7,17 +7,17 @@ import java.util.List;
 
 public class ActiveUserStore {
 
-    public List<LoggedUser> users;
+    public List<String> users;
 
     public ActiveUserStore() {
         this.users = new ArrayList<>();
     }
 
-    public List<LoggedUser> getUsers() {
+    public List<String> getUsers() {
         return users;
     }
 
-    public void setUsers(List<LoggedUser> users) {
+    public void setUsers(List<String> users) {
         this.users = users;
     }
 
