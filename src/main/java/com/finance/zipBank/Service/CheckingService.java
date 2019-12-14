@@ -16,10 +16,12 @@ public class CheckingService  {
     //creating checking and savings/ finding them by id
 
     public Checking createChecking(Checking checking){
+
         return checking_repo.save(checking);
     }
 
     public Checking findCheckingById (Long id){
+
         return checking_repo.findById(id).get();
     }
 
@@ -32,8 +34,11 @@ public class CheckingService  {
 
     ///updating accounts
     public Checking updateCheckingAccount(Long id, Checking checking){
-        //business logic
-        return checking;
+        Checking originalChecking = checking_repo.findById(id).get();
+        originalChecking.setBalance(checking.getBalance());
+        originalChecking.setStatusId(checking.getStatusId());
+        originalChecking.setLastUpdated(checking.getLastUpdated());
+        return checking_repo.save(originalChecking);
     }
 
 
