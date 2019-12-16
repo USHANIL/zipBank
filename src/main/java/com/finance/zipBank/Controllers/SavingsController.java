@@ -30,8 +30,8 @@ public class SavingsController {
     }
 
     @PutMapping("/savings/updated_savings/{accountId}")
-    public ResponseEntity<Savings> updateSavingsAccount(@PathVariable Long accountId, @RequestBody Savings savings){
-        return new ResponseEntity<>(savingsService.updateSavingsAccount(accountId, savings), HttpStatus.OK);
+    public ResponseEntity<Savings> updateSavingsAccount(@PathVariable Long accountId, @RequestBody Double savings){
+        return new ResponseEntity<Savings>(savingsService.updateSavingsAccount(accountId, savings), HttpStatus.OK);
     }
 
 }

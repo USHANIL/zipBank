@@ -1,7 +1,6 @@
 package com.finance.zipBank.Service;
 
 
-import com.finance.zipBank.Controllers.AccountHolderController;
 import com.finance.zipBank.Models.Login_Account;
 import com.finance.zipBank.Repositories.Account_Holder_Repo;
 import com.finance.zipBank.Repositories.Login_Account_Repo;
@@ -27,7 +26,7 @@ public class AccountHolderService {
         return loginCredentialRepo.findById(id).get();
     }
 
-    //updating user acccount credentials
+    //updating user account credentials
     public Login_Account updateAccount(Long id, Login_Account login){
 
         //business logic

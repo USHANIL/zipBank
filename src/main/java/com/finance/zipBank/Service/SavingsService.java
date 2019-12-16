@@ -29,9 +29,11 @@ public class SavingsService {
     }
 
     ///updating accounts
-    public Savings updateSavingsAccount(Long id, Savings savings){
+    public void updateSavingsAccount(Long id, Double savings){
+        Savings updated = findSavingsById(id);
+        updated.setBalance(updated.getBalance() + savings);
         //business logic
-        return savings;
+
     }
 
 
