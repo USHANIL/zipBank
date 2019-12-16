@@ -1,7 +1,5 @@
 package com.finance.zipBank.Models;
 
-import com.finance.zipBank.Service.SavingsService;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
