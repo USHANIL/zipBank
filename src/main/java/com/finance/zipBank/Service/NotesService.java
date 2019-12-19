@@ -13,10 +13,6 @@ public class NotesService {
     private NotesRepo notesRepo;
 
 
-
-    //find all notes by Account Number
-
-
     //create a note
 
 

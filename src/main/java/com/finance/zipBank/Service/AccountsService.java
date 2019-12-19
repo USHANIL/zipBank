@@ -7,6 +7,8 @@ import com.finance.zipBank.Repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountsService {
 
@@ -25,7 +27,14 @@ public class AccountsService {
         newAccount.setBalance(0.0);
         newAccount.setType("Checking");
 
-        return newAccount;
+        return accountsRepo.save(newAccount);
     }
+
+    //get  all accounts by user id.
+    public List<Accounts> getAllAccountsByUserId (Long id){
+         return accountsRepo.findAllByUserId(id);
+    }
+
+    //get
 
 }
