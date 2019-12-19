@@ -2,6 +2,7 @@ package com.finance.zipBank.Models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class User {
@@ -14,6 +15,8 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    @OneToMany
+    private List<Accounts> accountsList;
     private Date lastLogin;
 
     public User() {
@@ -82,5 +85,13 @@ public class User {
 
     public void setLastLogin(Date lastLogin) {
         this.lastLogin = lastLogin;
+    }
+
+    public List<Accounts> getAccountsList() {
+        return accountsList;
+    }
+
+    public void setAccountsList(List<Accounts> accountsList) {
+        this.accountsList = accountsList;
     }
 }

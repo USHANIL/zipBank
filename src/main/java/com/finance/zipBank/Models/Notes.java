@@ -8,6 +8,7 @@ public class Notes {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long noteId;
+    private Long accountNumber;
     private String note;
     private Date noteDate;
 
@@ -41,5 +42,13 @@ public class Notes {
 
     public void setNoteDate(Date noteDate) {
         this.noteDate = noteDate;
+    }
+
+    public Long getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(Long accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }
