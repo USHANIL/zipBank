@@ -19,8 +19,4 @@ public class NotesController {
 
 
 
-    @GetMapping("/notes/{id}")
-    public ResponseEntity<List<Notes>> findAllNotes(@PathVariable Long id){
-        return new ResponseEntity<>(notesService.findNotesByUser(id), HttpStatus.OK);
-    }
 }
