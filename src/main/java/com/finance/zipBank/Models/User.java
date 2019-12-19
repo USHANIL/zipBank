@@ -17,6 +17,8 @@ public class User {
     private String email;
     @OneToMany
     private List<Accounts> accountsList;
+    @OneToMany
+    private List<Notes> notesList;
     private Date lastLogin;
 
     public User() {
@@ -93,5 +95,13 @@ public class User {
 
     public void setAccountsList(List<Accounts> accountsList) {
         this.accountsList = accountsList;
+    }
+
+    public List<Notes> getNotesList() {
+        return notesList;
+    }
+
+    public void setNotesList(List<Notes> notesList) {
+        this.notesList = notesList;
     }
 }

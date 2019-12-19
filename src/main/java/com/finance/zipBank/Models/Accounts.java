@@ -16,8 +16,7 @@ public class Accounts {
     private String type;
     @OneToMany
     private List<Transactions> transactionsList;
-    @OneToMany
-    private List<Notes> notesList;
+
 
     public Accounts() {
     }
@@ -69,11 +68,4 @@ public class Accounts {
     }
 
 
-    public List<Notes> getNotesList() {
-        return notesList;
-    }
-
-    public void setNotesList(List<Notes> notesList) {
-        this.notesList = notesList;
-    }
 }

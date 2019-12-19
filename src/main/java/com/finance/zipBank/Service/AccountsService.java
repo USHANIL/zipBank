@@ -27,6 +27,8 @@ public class AccountsService {
         newAccount.setBalance(0.0);
         newAccount.setType("Checking");
 
+
+
         return accountsRepo.save(newAccount);
     }
 
