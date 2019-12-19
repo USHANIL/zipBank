@@ -18,7 +18,6 @@ public class Accounts {
     private List<Transactions> transactionsList;
     @OneToMany
     private List<Notes> notesList;
-    private Date lastUpdated;
 
     public Accounts() {
     }
@@ -27,7 +26,7 @@ public class Accounts {
         this.userId = userId;
         this.balance = balance;
         this.type = type;
-        this.lastUpdated = lastUpdated;
+
     }
 
     public Long getAccountNumber() {
@@ -70,13 +69,6 @@ public class Accounts {
         this.type = type;
     }
 
-    public Date getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
-    }
 
     public List<Notes> getNotesList() {
         return notesList;
