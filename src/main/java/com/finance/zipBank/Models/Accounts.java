@@ -11,19 +11,20 @@ public class Accounts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long accountNumber;
-    @ManyToOne
-    private User user;
+    private Long userId;
     private Double balance;
     private String type;
     @OneToMany
     private List<Transactions> transactionsList;
+    @OneToMany
+    private List<Notes> notesList;
     private Date lastUpdated;
 
     public Accounts() {
     }
 
-    public Accounts(User user, Double balance, String type, Date lastUpdated) {
-        this.user = user;
+    public Accounts(Long userId, Double balance, String type, Date lastUpdated) {
+        this.userId = userId;
         this.balance = balance;
         this.type = type;
         this.lastUpdated = lastUpdated;
@@ -37,12 +38,20 @@ public class Accounts {
         this.accountNumber = accountNumber;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public List<Transactions> getTransactionsList() {
+        return transactionsList;
+    }
+
+    public void setTransactionsList(List<Transactions> transactionsList) {
+        this.transactionsList = transactionsList;
     }
 
     public Double getBalance() {
@@ -67,5 +76,13 @@ public class Accounts {
 
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    public List<Notes> getNotesList() {
+        return notesList;
+    }
+
+    public void setNotesList(List<Notes> notesList) {
+        this.notesList = notesList;
     }
 }

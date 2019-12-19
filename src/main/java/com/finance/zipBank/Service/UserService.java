@@ -39,6 +39,16 @@ public class UserService {
         return userRepo.save(updateUser);
     }
 
+    //deleting the user
+    public Boolean deleteUser (Long id){
+        User user = findUserById(id);
+        if(user != null){
+            userRepo.delete(user);
+            return true;
+        }else
+            return false;
+    }
+
 
 
 

@@ -27,4 +27,9 @@ public class UserController {
     public ResponseEntity<User> updateUser (@PathVariable Long id, @RequestBody User user){
         return new ResponseEntity<>(userService.updateUser(id, user), HttpStatus.OK);
     }
+
+    @DeleteMapping("user/delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id){
+        return new ResponseEntity<>(userService.deleteUser(id), HttpStatus.OK);
+    }
 }
