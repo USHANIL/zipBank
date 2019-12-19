@@ -22,4 +22,9 @@ public class UserController {
     public ResponseEntity<User> findUserById(@PathVariable Long id){
         return new ResponseEntity<>(userService.findUserById(id), HttpStatus.OK);
     }
+
+    @PutMapping("user/update/{id}")
+    public ResponseEntity<User> updateUser (@PathVariable Long id, @RequestBody User user){
+        return new ResponseEntity<>(userService.updateUser(id, user), HttpStatus.OK);
+    }
 }

@@ -7,7 +7,9 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name ="userId", nullable = false, unique = true)
     private Long userId;
+
     private String username;
     private String password;
     private String firstName;

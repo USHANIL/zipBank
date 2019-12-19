@@ -12,14 +12,34 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
-    public User createUser(User user){
-        return new User(user.getUsername(), user.getPassword(), user.getFirstName(),
-                user.getLastName(), user.getEmail(), null);
-
-    }
-
+    //finds user by ID
     public User findUserById(Long id){
         return userRepo.findById(id).get();
+
     }
+    //creates user
+    public User createUser(User user){
+        User newUser = new User();
+        newUser.setUsername(user.getUsername());
+        newUser.setPassword(user.getPassword());
+        newUser.setFirstName(user.getFirstName());
+        newUser.setLastName(user.getLastName());
+        newUser.setEmail(user.getEmail());
+
+        return userRepo.save(newUser);
+    }
+
+    //updates the user
+    public User updateUser(Long id,User user){
+        User updateUser = findUserById(id);
+        updateUser.setUsername(user.getUsername());
+        updateUser.setPassword(user.getPassword());
+        updateUser.setEmail(user.getEmail());
+
+        return userRepo.save(updateUser);
+    }
+
+
+
 
 }
