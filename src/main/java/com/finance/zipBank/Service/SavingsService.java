@@ -29,11 +29,11 @@ public class SavingsService {
     }
 
     ///updating accounts
-    public void updateSavingsAccount(Long id, Double savings){
+    public String updateSavingsAccount(Long id, Double savings){
         Savings updated = findSavingsById(id);
         updated.setBalance(updated.getBalance() + savings);
-        //business logic
-
+        savings_repo.save(updated);
+        return "Updated";
     }
 
 

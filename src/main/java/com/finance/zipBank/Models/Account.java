@@ -1,13 +1,15 @@
 package com.finance.zipBank.Models;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 @Entity
 public abstract class Account{
 
     private Long accountId;
+    @Id
     private Long accountNumber;
-    private Long balance;
+    private Double balance;
     private Long statusId;
     private Date lastUpdated;
 
@@ -27,11 +29,11 @@ public abstract class Account{
         this.accountNumber = accountNumber;
     }
 
-    public Long getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(Long balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
 

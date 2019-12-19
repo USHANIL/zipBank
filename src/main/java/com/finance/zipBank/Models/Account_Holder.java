@@ -12,7 +12,6 @@ public class Account_Holder {
     private Long account_Id;
     private String first_Name;
     private String last_Name;
-    private Integer address_Id;
     private Integer phone_Number;
     private String email;
     private Date last_Updated;
@@ -43,13 +42,6 @@ public class Account_Holder {
         this.last_Name = last_Name;
     }
 
-    public Integer getAddress_Id() {
-        return address_Id;
-    }
-
-    public void setAddress_Id(Integer address_Id) {
-        this.address_Id = address_Id;
-    }
 
     public Integer getPhone_Number() {
         return phone_Number;
