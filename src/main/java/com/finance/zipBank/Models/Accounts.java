@@ -2,6 +2,8 @@ package com.finance.zipBank.Models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 public class Accounts {
 
@@ -10,17 +12,20 @@ public class Accounts {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long accountNumber;
     @ManyToOne
-    private Long userId;
+    private User user;
     private Double balance;
     private String type;
+    @OneToMany
+    private List<Transactions> transactionsList;
     private Date lastUpdated;
 
     public Accounts() {
     }
 
-    public Accounts(Long userId, Double balance, Date lastUpdated) {
-        this.userId = userId;
+    public Accounts(User user, Double balance, String type, Date lastUpdated) {
+        this.user = user;
         this.balance = balance;
+        this.type = type;
         this.lastUpdated = lastUpdated;
     }
 
@@ -32,12 +37,12 @@ public class Accounts {
         this.accountNumber = accountNumber;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Double getBalance() {

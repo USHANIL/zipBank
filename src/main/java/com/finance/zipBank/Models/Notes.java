@@ -9,7 +9,7 @@ public class Notes {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long noteId;
     @ManyToOne
-    private Long userId;
+    private User user;
     private String note;
     private Date noteDate;
 
@@ -29,12 +29,12 @@ public class Notes {
         this.noteId = noteId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getNote() {

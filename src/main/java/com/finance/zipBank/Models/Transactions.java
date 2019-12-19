@@ -9,7 +9,6 @@ public class Transactions {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long transactionId;
-    @ManyToOne
     private Long accountNumber;
     private Long amount;
     private String type;
