@@ -19,7 +19,7 @@ public class NotesService {
     private UserRepo userRepo;
 
 
-    //find all notes by user
+    //find all notes by Account Number
     public List<Notes> findNotesByUser(Long id){
         User user = userRepo.findById(id).get();
         return notesRepo.findAllByUser(user);

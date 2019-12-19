@@ -22,11 +22,10 @@ public class Accounts {
     public Accounts() {
     }
 
-    public Accounts(Long userId, Double balance, String type, Date lastUpdated) {
+    public Accounts(Long userId, Double balance, String type) {
         this.userId = userId;
         this.balance = balance;
         this.type = type;
-
     }
 
     public Long getAccountNumber() {
