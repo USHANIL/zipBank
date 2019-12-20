@@ -29,6 +29,11 @@ public class UserService {
         return userRepo.save(newUser);
     }
 
+    //find user by username and password
+    public User findByUsernameAndPassword(String username, String password){
+        return userRepo.findByUsernameAndPassword(username, password);
+    }
+
     //updates the user
     public User updateUser(Long id,User user){
         User updateUser = findUserById(id);
