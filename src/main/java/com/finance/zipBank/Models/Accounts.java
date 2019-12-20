@@ -9,13 +9,17 @@ public class Accounts {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long accountNumber;
     private Long userId;
     private Double balance;
     private String type;
+    private Double interestRate;
+
     @OneToMany
     private List<Transactions> transactionsList;
+    @ManyToOne
+    private User user;
 
 
     public Accounts() {
@@ -67,5 +71,19 @@ public class Accounts {
         this.type = type;
     }
 
+    public Double getInterestRate() {
+        return interestRate;
+    }
 
+    public void setInterestRate(Double interestRate) {
+        this.interestRate = interestRate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
