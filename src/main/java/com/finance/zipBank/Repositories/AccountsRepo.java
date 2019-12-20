@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface AccountsRepo extends CrudRepository<Accounts, Long> {
     List<Accounts> findAllByUserId (Long id);
+    List<Accounts> findTop5ByUserId (Long id);
 }
