@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface NotesRepo extends CrudRepository<Notes, Long> {
-
+    List<Notes> findAllByUserIdOrderByNoteDate (Long id);
+    Notes findNotesByNoteId(Long id);
 }
