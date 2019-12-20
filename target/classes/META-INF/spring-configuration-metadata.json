@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "spring.datasource",
+      "type": "com.finance.zipBank.Configurations.DBConfiguration",
+      "sourceType": "com.finance.zipBank.Configurations.DBConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.datasource.driver-class-name",
+      "type": "java.lang.String",
+      "sourceType": "com.finance.zipBank.Configurations.DBConfiguration"
+    },
+    {
+      "name": "spring.datasource.password",
+      "type": "java.lang.String",
+      "sourceType": "com.finance.zipBank.Configurations.DBConfiguration"
+    },
+    {
+      "name": "spring.datasource.url",
+      "type": "java.lang.String",
+      "sourceType": "com.finance.zipBank.Configurations.DBConfiguration"
+    },
+    {
+      "name": "spring.datasource.username",
+      "type": "java.lang.String",
+      "sourceType": "com.finance.zipBank.Configurations.DBConfiguration"
+    }
+  ],
+  "hints": []
+}
