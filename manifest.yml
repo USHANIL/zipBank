@@ -6,7 +6,5 @@ applications:
     random-route: true
     buildpack: java_buildpack
     path: target/zipBank-0.0.1-SNAPSHOT.jar
-    env:
-        SPRING_PROFILES_ACTIVE: prod
     services:
      - zipWallet
