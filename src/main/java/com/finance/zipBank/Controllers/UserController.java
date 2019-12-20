@@ -23,13 +23,17 @@ public class UserController {
         return new ResponseEntity<>(userService.findUserById(id), HttpStatus.OK);
     }
 
-    @PutMapping("user/update/{id}")
+    @PutMapping("/user/update/{id}")
     public ResponseEntity<User> updateUser (@PathVariable Long id, @RequestBody User user){
         return new ResponseEntity<>(userService.updateUser(id, user), HttpStatus.OK);
     }
 
-    @DeleteMapping("user/delete/{id}")
+    @DeleteMapping("/user/delete/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id){
         return new ResponseEntity<>(userService.deleteUser(id), HttpStatus.OK);
     }
+
+
+
+
 }
