@@ -1,35 +1,15 @@
-package com.finance.zipBank.Models;
+package com.finance.zipBank.dto;
 
-import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+public class AccountsDTO {
 
-@Entity
-public class Accounts {
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accountNumber;
     private Long userId;
     private Double balance;
     private String type;
     private Double interestRate;
 
-    @OneToMany
-    private List<Transactions> transactionsList;
-    @ManyToOne
-    private User user;
 
-
-    public Accounts() {
-    }
-
-    public Accounts(Long userId, Double balance, String type) {
-        this.userId = userId;
-        this.balance = balance;
-        this.type = type;
-    }
+    private UserDTO user;
 
     public Long getAccountNumber() {
         return accountNumber;
@@ -45,14 +25,6 @@ public class Accounts {
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    public List<Transactions> getTransactionsList() {
-        return transactionsList;
-    }
-
-    public void setTransactionsList(List<Transactions> transactionsList) {
-        this.transactionsList = transactionsList;
     }
 
     public Double getBalance() {
@@ -79,11 +51,11 @@ public class Accounts {
         this.interestRate = interestRate;
     }
 
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 }
