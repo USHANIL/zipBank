@@ -12,6 +12,7 @@ public class Accounts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accountNumber;
     private Long userId;
+    private String accountName;
     private Double balance;
     private String type;
     private Double interestRate;
@@ -85,5 +86,13 @@ public class Accounts {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getAccountName() {
+        return accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 }
