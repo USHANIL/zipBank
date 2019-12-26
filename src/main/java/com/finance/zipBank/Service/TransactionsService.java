@@ -1,5 +1,6 @@
 package com.finance.zipBank.Service;
 
+import com.finance.zipBank.Models.Transactions;
 import com.finance.zipBank.Repositories.TransactionsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,4 +10,5 @@ public class TransactionsService {
 
     @Autowired
     private TransactionsRepo transactionsRepo;
+
 }

@@ -7,6 +7,7 @@ import com.finance.zipBank.Repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Service
@@ -17,6 +18,15 @@ public class AccountsService {
 
     @Autowired
     private UserRepo userRepo;
+
+    public Accounts createDummyAccount(Accounts account) {
+        Accounts newAccount = new Accounts();
+        newAccount.setUserId(1L);
+        newAccount.setAccountName(account.getAccountName());
+        newAccount.setBalance(account.getBalance());
+        newAccount.setType(account.getType());
+        return accountsRepo.save(newAccount);
+    }
 
     public Accounts createAccount(Long id) {
         User user = userRepo.findById(id).get();
@@ -47,6 +57,7 @@ public class AccountsService {
         Accounts temp = getAccountById(accountId);
         temp.setBalance(account.getBalance());
         temp.setType(account.getType());
+        temp.setAccountName(account.getAccountName());
         temp.setUserId(account.getUserId());
         temp.setAccountNumber(account.getAccountNumber());
         temp.setTransactionsList(account.getTransactionsList());
@@ -60,7 +71,7 @@ public class AccountsService {
         return accountsRepo.save(account);
     }
 
-    public Accounts accountWithdrawl(Accounts account, Double amount) {
+    public Accounts accountWithdraw(Accounts account, Double amount) {
         Double balance = account.getBalance();
         balance -= amount;
         account.setBalance(balance);
