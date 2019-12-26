@@ -3,6 +3,7 @@ package com.finance.zipBank.Controllers;
 
 import com.finance.zipBank.Models.Notes;
 import com.finance.zipBank.Service.NotesService;
+import com.finance.zipBank.dto.NoteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class NotesController {
 
 
     @PostMapping("/user/{id}/note")
-    public ResponseEntity<Notes> createNote(@PathVariable Long id, @RequestBody Notes note){
+    public ResponseEntity<Notes> createNote(@PathVariable Long id, @RequestBody NoteDTO note){
         return new ResponseEntity<>(notesService.createNote(id, note), HttpStatus.CREATED);
     }
 
@@ -29,7 +30,7 @@ public class NotesController {
     }
 
     @PutMapping("/user/notes/{id}")
-    public ResponseEntity<Notes> updateNote(@PathVariable Long id, @RequestBody Notes note){
+    public ResponseEntity<Notes> updateNote(@PathVariable Long id, @RequestBody NoteDTO note){
         return new ResponseEntity<>(notesService.updateNote(id, note), HttpStatus.OK);
     }
 

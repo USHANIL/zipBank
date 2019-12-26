@@ -3,21 +3,11 @@ package com.finance.zipBank.dto;
 
 
 public class NoteDTO {
-    private Long userId;
     private String note;
 
 
-    public NoteDTO(Long userId, String note) {
-        this.userId = userId;
+    public NoteDTO(String note) {
         this.note = note;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     public String getNote() {
