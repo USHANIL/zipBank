@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -20,26 +21,20 @@ public class TransactionsService {
     private AccountsRepo accountsRepo;
 
     //create transaction
-    public Transactions create(Long accountNumber){
+    public Transactions create(Long accountNumber, Transactions transactionData){
         Accounts accounts = accountsRepo.findById(accountNumber).get();
 
         Transactions transaction = new Transactions();
         transaction.setAccountNumber(accounts.getAccountNumber());
-        transaction.setAmount(0L);
-        transaction.setType("");
+        transaction.setAmount(transactionData.getAmount());
+        transaction.setType(transactionData.getType());
+        transaction.setTransactionDate(new Date());
 
         return transactionsRepo.save(transaction);
     }
 
     //list all transactions for specific account
     public List<Transactions> list(Long accountNumber) {
-//        Iterable<Transactions> listTransactions = transactionsRepo.findAll();
-//        List<Transactions> transactionList = new ArrayList<>();
-//        for (Transactions transactions : listTransactions){
-//            if (transactions.getAccountNumber().equals(accountNumber)) {
-//                transactionList.add(transactions);
-//            }
-//        }
         return transactionsRepo.findAllByAccountNumber(accountNumber);
     }
 
