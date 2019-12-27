@@ -4,7 +4,7 @@ import com.finance.zipBank.Models.Notes;
 import com.finance.zipBank.Models.User;
 import com.finance.zipBank.Repositories.NotesRepo;
 import com.finance.zipBank.Repositories.UserRepo;
-import com.finance.zipBank.dto.NoteDTO;
+import com.finance.zipBank.Models.dto.NoteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

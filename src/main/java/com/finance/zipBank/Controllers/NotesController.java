@@ -3,7 +3,7 @@ package com.finance.zipBank.Controllers;
 
 import com.finance.zipBank.Models.Notes;
 import com.finance.zipBank.Service.NotesService;
-import com.finance.zipBank.dto.NoteDTO;
+import com.finance.zipBank.Models.dto.NoteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +13,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin(maxAge = 3000)
 public class NotesController {
 
     @Autowired

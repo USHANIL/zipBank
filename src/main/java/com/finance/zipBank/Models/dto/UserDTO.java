@@ -1,7 +1,4 @@
-package com.finance.zipBank.dto;
-
-import java.util.Date;
-import java.util.List;
+package com.finance.zipBank.Models.dto;
 
 public class UserDTO {
     private String firstName;
