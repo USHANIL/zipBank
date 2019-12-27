@@ -1,4 +1,4 @@
-package com.finance.zipBank.Models.dto;
+package com.finance.zipBank.dto;
 
 public class BalanceDTO {
     private Long amount;

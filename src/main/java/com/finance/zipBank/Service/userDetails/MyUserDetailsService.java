@@ -21,8 +21,11 @@ public class MyUserDetailsService implements UserDetailsService {
     //check login controller request  with user repository
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-
-        return new User("foo", "foo", new ArrayList<>());
+        try{
+            com.finance.zipBank.Models.User user = userRepo.findByUsername(username);
+            return new User(user.getUsername(), user.getPassword(), new ArrayList<>());
+        }catch(UsernameNotFoundException e){
+            throw new UsernameNotFoundException("Username or password does not exist", e);
+        }
     }
 }

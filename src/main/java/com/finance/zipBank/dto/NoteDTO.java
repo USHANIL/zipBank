@@ -1,4 +1,4 @@
-package com.finance.zipBank.Models.dto;
+package com.finance.zipBank.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
