@@ -1,6 +1,7 @@
 package com.finance.zipBank.Service;
 
 import com.finance.zipBank.Models.User;
+import com.finance.zipBank.dto.UserDTO;
 import com.finance.zipBank.Repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,8 @@ public class UserService {
 
     }
     //creates user
-    public User createUser(User user){
+    public User createUser(UserDTO user){
+
         User newUser = new User();
         newUser.setUsername(user.getUsername());
         newUser.setPassword(user.getPassword());
