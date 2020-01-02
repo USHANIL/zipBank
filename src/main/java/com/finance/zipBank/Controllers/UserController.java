@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping("/users")
     public ResponseEntity<User> createUser(@RequestBody User user){
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
     }
@@ -21,6 +21,11 @@ public class UserController {
     @GetMapping("/user/{id}")
     public ResponseEntity<User> findUserById(@PathVariable Long id){
         return new ResponseEntity<>(userService.findUserById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<Iterable<User>> findUsers(){
+        return new ResponseEntity<>(userService.findUsers(), HttpStatus.OK);
     }
 
     @PutMapping("/user/update/{id}")

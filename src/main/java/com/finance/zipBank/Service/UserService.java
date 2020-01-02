@@ -15,8 +15,12 @@ public class UserService {
     //finds user by ID
     public User findUserById(Long id){
         return userRepo.findById(id).get();
-
     }
+
+    public Iterable<User> findUsers(){
+        return userRepo.findAll();
+    }
+
     //creates user
     public User createUser(User user){
         User newUser = new User();
