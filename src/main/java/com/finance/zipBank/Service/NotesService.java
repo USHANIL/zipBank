@@ -4,6 +4,7 @@ import com.finance.zipBank.Models.Notes;
 import com.finance.zipBank.Models.User;
 import com.finance.zipBank.Repositories.NotesRepo;
 import com.finance.zipBank.Repositories.UserRepo;
+import com.finance.zipBank.dto.NoteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +22,16 @@ public class NotesService {
     private UserRepo userRepo;
 
     //create a note
-    public Notes createNote (Long id, Notes note){
+    public Notes createNote (Long id, NoteDTO note){
+
+        String noteString = note.getNote();
+
         User user = userRepo.findById(id).get();
 
         Notes newNotes = new Notes();
+
         newNotes.setUserId(user.getUserId());
-        newNotes.setNote(note.getNote());
+        newNotes.setNote(noteString);
         newNotes.setNoteDate(new Date());
 
         return notesRepo.save(newNotes);
@@ -42,9 +47,12 @@ public class NotesService {
     }
 
     //update note
-    public Notes updateNote(Long id, Notes note){
+    public Notes updateNote(Long id, NoteDTO note){
+        String noteString = note.getNote();
+
         Notes noteUpdate = notesRepo.findById(id).get();
-        noteUpdate.setNote(note.getNote());
+
+        noteUpdate.setNote(noteString);
 
         return notesRepo.save(noteUpdate);
     }
