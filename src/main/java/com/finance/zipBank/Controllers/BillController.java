@@ -14,24 +14,24 @@ public class BillController {
     @Autowired
     BillService billService;
 
-    @GetMapping("bills/{id}")
+    @GetMapping("API/bills/{id}")
     public ResponseEntity<Bill>getBillById(@PathVariable Long id){
         return new ResponseEntity<>(billService.getBill(id),HttpStatus.OK);
     }
 
-    @PostMapping("bills/create_bill")
+    @PostMapping("API/bills/create_bill")
     public ResponseEntity<Bill>addBill(@RequestBody Bill bill){
         return new ResponseEntity<>(billService.addBill(bill),HttpStatus.OK);
     }
-    @GetMapping("bills/all_bills")
+    @GetMapping("API/bills/all_bills")
     public ResponseEntity<Iterable<Bill>>getAllBills(){
         return new ResponseEntity<>(billService.getAllBills(), HttpStatus.OK);
     }
-    @GetMapping("bills/user/{userId}")
+    @GetMapping("API/bills/user/{userId}")
     public ResponseEntity<Iterable<Bill>>getBillsByUserId(@PathVariable Long userId){
         return new ResponseEntity<>(billService.getBillsByUserId(userId),HttpStatus.OK);
     }
-    @DeleteMapping("bills/delete/{id}")
+    @DeleteMapping("API/bills/delete/{id}")
     public ResponseEntity<Bill>removeBill(@PathVariable Long id){
         billService.removeBill(id);
         return new ResponseEntity<>(HttpStatus.OK);

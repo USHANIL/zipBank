@@ -20,6 +20,7 @@ public class BillService {
     public Iterable<Bill>getAllBills(){
         return billRepository.findAll();
     }
+
     public Bill addBill(Bill bill){
         return billRepository.save(bill);
     }
