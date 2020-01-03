@@ -27,6 +27,7 @@ public class TransactionsService {
         Accounts accounts = accountsRepo.findById(accountNumber).get();
 
         Transactions transaction = new Transactions();
+        transaction.setUserId(accounts.getUserId());
         transaction.setAccountNumber(accounts.getAccountNumber());
         transaction.setAmount(transactionData.getAmount());
         transaction.setType(transactionData.getType());
@@ -38,6 +39,14 @@ public class TransactionsService {
     //list all transactions for specific account
     public List<Transactions> list(Long accountNumber) {
         return transactionsRepo.findAllByAccountNumber(accountNumber);
+    }
+
+    public  List<Transactions> listTop5ByDate(Long accountNumber){
+        return transactionsRepo.findTop5ByAccountNumberOrderByTransactionDate(accountNumber);
+    }
+
+    public List<Transactions> listTop5ForUser(Long userId){
+        return transactionsRepo.findTop5ByUserIdOrderByTransactionDate(userId);
     }
 
 }

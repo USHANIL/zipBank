@@ -8,8 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 
 @RestController
+@CrossOrigin(maxAge = 3600)
 public class TransactionsController {
 
     @Autowired
@@ -22,10 +25,17 @@ public class TransactionsController {
     }
 
     //list all transactions
-    @GetMapping("/user/{id}/accounts/{accountNumber}/transactions")
+    @GetMapping("/accounts/{accountNumber}/transactions")
     public ResponseEntity<Iterable<Transactions>> listAllTransactions(@PathVariable Long accountNumber) {
         return new ResponseEntity<>(transactionsService.list(accountNumber), HttpStatus.OK);
     }
+    @GetMapping("/accounts/{accountNumber}/top_5_transactions")
+    public ResponseEntity<Iterable<Transactions>> listTop5TransactionsByDate(@PathVariable Long accountNumber){
+        return new ResponseEntity<>(transactionsService.listTop5ByDate(accountNumber), HttpStatus.OK);
+    }
 
-
+    @GetMapping("/user/{userId}/most_recent_transactions")
+    public ResponseEntity<Iterable<Transactions>> listTop5TransactionsForUser(@PathVariable Long userId){
+        return new ResponseEntity<>(transactionsService.listTop5ForUser(userId), HttpStatus.OK);
+    }
 }
