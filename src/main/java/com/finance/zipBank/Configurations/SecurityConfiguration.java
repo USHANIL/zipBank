@@ -1,6 +1,7 @@
 package com.finance.zipBank.Configurations;
 
 import com.finance.zipBank.Service.userDetails.MyUserDetailsService;
+import com.finance.zipBank.filters.CorsFilter;
 import com.finance.zipBank.filters.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.session.SessionManagementFilter;
 
 
 @EnableWebSecurity
@@ -41,13 +43,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.addFilterBefore(corsFilter(), SessionManagementFilter.class);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
 
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception{
         return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public CorsFilter corsFilter(){
+        CorsFilter filter = new CorsFilter();
+        return filter;
     }
 
     @Bean

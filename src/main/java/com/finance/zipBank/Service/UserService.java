@@ -36,6 +36,10 @@ public class UserService {
         return userRepo.findByUsernameAndPassword(username, password);
     }
 
+    public User findByUsername(String username){
+        return userRepo.findByUsername(username);
+    }
+
     //updates the user
     public User updateUser(Long id,User user){
         User updateUser = findUserById(id);
