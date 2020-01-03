@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="userId", nullable = false, unique = true)
     private Long userId;
     private String username;
@@ -15,10 +15,6 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
-    @OneToMany
-    private List<Accounts> accountsList;
-    @OneToMany
-    private List<Notes> notesList;
     private Date lastLogin;
 
     public User() {
@@ -89,19 +85,4 @@ public class User {
         this.lastLogin = lastLogin;
     }
 
-    public List<Accounts> getAccountsList() {
-        return accountsList;
-    }
-
-    public void setAccountsList(List<Accounts> accountsList) {
-        this.accountsList = accountsList;
-    }
-
-    public List<Notes> getNotesList() {
-        return notesList;
-    }
-
-    public void setNotesList(List<Notes> notesList) {
-        this.notesList = notesList;
-    }
 }
