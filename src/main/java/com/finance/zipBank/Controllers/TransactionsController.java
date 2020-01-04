@@ -19,22 +19,22 @@ public class TransactionsController {
     private TransactionsService transactionsService;
 
 
-    @PostMapping("/accounts/{accountNumber}/transaction_created")
+    @PostMapping("API/accounts/{accountNumber}/transaction_created")
     public ResponseEntity<Transactions> create(@PathVariable Long accountNumber, @RequestBody Transactions transactions) {
         return new ResponseEntity<>(transactionsService.create(accountNumber, transactions), HttpStatus.CREATED);
     }
 
     //list all transactions
-    @GetMapping("/accounts/{accountNumber}/transactions")
+    @GetMapping("API/accounts/{accountNumber}/transactions")
     public ResponseEntity<Iterable<Transactions>> listAllTransactions(@PathVariable Long accountNumber) {
         return new ResponseEntity<>(transactionsService.list(accountNumber), HttpStatus.OK);
     }
-    @GetMapping("/accounts/{accountNumber}/top_5_transactions")
+    @GetMapping("API/accounts/{accountNumber}/top_5_transactions")
     public ResponseEntity<Iterable<Transactions>> listTop5TransactionsByDate(@PathVariable Long accountNumber){
         return new ResponseEntity<>(transactionsService.listTop5ByDate(accountNumber), HttpStatus.OK);
     }
 
-    @GetMapping("/user/{userId}/most_recent_transactions")
+    @GetMapping("API/user/{userId}/most_recent_transactions")
     public ResponseEntity<Iterable<Transactions>> listTop5TransactionsForUser(@PathVariable Long userId){
         return new ResponseEntity<>(transactionsService.listTop5ForUser(userId), HttpStatus.OK);
     }
