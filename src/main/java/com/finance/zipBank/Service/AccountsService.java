@@ -1,6 +1,7 @@
 package com.finance.zipBank.Service;
 
 import com.finance.zipBank.Models.Accounts;
+import com.finance.zipBank.Models.Transactions;
 import com.finance.zipBank.Models.User;
 import com.finance.zipBank.Repositories.AccountsRepo;
 import com.finance.zipBank.Repositories.UserRepo;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -64,19 +66,33 @@ public class AccountsService {
         return accountsRepo.save(temp);
     }
 
-    public Accounts accountDeposit(Accounts account, Double amount) {
+    public Accounts accountDeposit(Long accountId, Transactions transactions) {
+        Double amount = transactions.getAmount();
+        if(transactions.getAmount() < 0){
+            throw new IllegalArgumentException();
+        }
+        Accounts account = getAccountById(accountId);
         Double balance = account.getBalance();
         balance += amount;
         account.setBalance(balance);
+        Transactions transactions2 = new Transactions(account.getAccountNumber(), amount,"Deposit", new Date());
+        TransactionsService transactionsService = new TransactionsService();
+        transactionsService.create(account.getAccountNumber(), transactions2);
         return accountsRepo.save(account);
     }
 
+
+
     public Accounts accountWithdraw(Accounts account, Double amount) {
+        if(amount < 0 || amount > account.getBalance() ) {
+            throw new IllegalArgumentException();
+        }
         Double balance = account.getBalance();
         balance -= amount;
         account.setBalance(balance);
         return accountsRepo.save(account);
     }
+
 
     public Boolean deleteAccountById(Long accountId) {
         accountsRepo.deleteById(accountId);
