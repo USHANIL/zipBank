@@ -21,6 +21,9 @@ public class AccountsService {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private TransactionsService transactionsService;
+
     public Accounts createDummyAccount(Accounts account) {
         Accounts newAccount = new Accounts();
         newAccount.setUserId(1L);
@@ -66,30 +69,64 @@ public class AccountsService {
         return accountsRepo.save(temp);
     }
 
-    public Accounts accountDeposit(Long accountId, Transactions transactions) {
+    public Accounts accountDeposit(Transactions transactions) {
+        Long accountId = transactions.getAccountNumber();
         Double amount = transactions.getAmount();
-        if(transactions.getAmount() < 0){
+        Accounts account = getAccountById(accountId);
+        if(transactions.getAmount() <= 0){
             throw new IllegalArgumentException();
         }
-        Accounts account = getAccountById(accountId);
+
         Double balance = account.getBalance();
         balance += amount;
         account.setBalance(balance);
         Transactions transactions2 = new Transactions(account.getAccountNumber(), amount,"Deposit", new Date());
-        TransactionsService transactionsService = new TransactionsService();
-        transactionsService.create(account.getAccountNumber(), transactions2);
+        transactionsService.create(accountId, transactions2);
         return accountsRepo.save(account);
     }
 
+    public Accounts transferRecipient(Transactions transactions) {
+        Long accountId = transactions.getAccountNumber();
+        Double amount = transactions.getAmount();
+        Accounts account = getAccountById(accountId);
+        if (transactions.getAmount() <= 0) {
+            throw new IllegalArgumentException();
+        }
 
-
-    public Accounts accountWithdraw(Accounts account, Double amount) {
-        if(amount < 0 || amount > account.getBalance() ) {
+        Double balance = account.getBalance();
+        balance += amount;
+        account.setBalance(balance);
+        Transactions transactions2 = new Transactions(account.getAccountNumber(), amount, "Transfer received ", new Date());
+        transactionsService.create(accountId, transactions2);
+        return accountsRepo.save(account);
+    }
+    public Accounts transferSender(Transactions transactions) {
+        Long accountId = transactions.getAccountNumber();
+        Double amount = transactions.getAmount();
+        Accounts account = getAccountById(accountId);
+        if(amount <= 0 || amount > account.getBalance() ) {
             throw new IllegalArgumentException();
         }
         Double balance = account.getBalance();
         balance -= amount;
         account.setBalance(balance);
+        Transactions transactions2 = new Transactions(account.getAccountNumber(), amount*-1,"Transfer sent ", new Date());
+        transactionsService.create(accountId, transactions2);
+        return accountsRepo.save(account);
+    }
+
+    public Accounts accountWithdraw(Transactions transactions) {
+        Long accountId = transactions.getAccountNumber();
+        Double amount = transactions.getAmount();
+        Accounts account = getAccountById(accountId);
+        if(amount <= 0 || amount > account.getBalance() ) {
+            throw new IllegalArgumentException();
+        }
+        Double balance = account.getBalance();
+        balance -= amount;
+        account.setBalance(balance);
+        Transactions transactions2 = new Transactions(account.getAccountNumber(), amount*-1,"Withdraw", new Date());
+        transactionsService.create(accountId, transactions2);
         return accountsRepo.save(account);
     }
 

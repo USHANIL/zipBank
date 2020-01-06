@@ -21,12 +21,12 @@ public class Bill {
     private Integer billCycle;
 
 
-    public Long getBillID() {
+    public Long getBillId() {
         return billId;
     }
 
-    public void setBillID(Long billID) {
-        this.billId = billID;
+    public void setBillId(Long billId) {
+        this.billId = billId;
     }
 
     public Long getUserId() {
