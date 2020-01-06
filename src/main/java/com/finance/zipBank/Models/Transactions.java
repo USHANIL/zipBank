@@ -7,17 +7,18 @@ import java.util.Date;
 public class Transactions {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long transactionId;
+    private Long userId;
     private Long accountNumber;
-    private Long amount;
+    private Double amount;
     private String type;
     private Date transactionDate;
 
     public Transactions() {
     }
 
-    public Transactions(Long accountNumber, Long amount, String type, Date transactionDate) {
+    public Transactions(Long accountNumber, Double amount, String type, Date transactionDate) {
         this.accountNumber = accountNumber;
         this.amount = amount;
         this.type = type;
@@ -40,11 +41,11 @@ public class Transactions {
         this.accountNumber = accountNumber;
     }
 
-    public Long getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Long amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
@@ -62,5 +63,13 @@ public class Transactions {
 
     public void setTransactionDate(Date transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
