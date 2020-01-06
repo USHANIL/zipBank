@@ -12,4 +12,5 @@ public interface TransactionsRepo extends CrudRepository<Transactions, Long> {
     List<Transactions> findAllByAccountNumber (Long accountNumber);
     List<Transactions> findTop5ByAccountNumberOrderByTransactionDate (Long accountNumber);
     List<Transactions> findTop5ByUserIdOrderByTransactionDate (Long userId);
+    List<Transactions> findByTransactionId (Long transactionId);
 }
