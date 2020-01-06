@@ -18,6 +18,8 @@ public class AccountsController {
 
     @Autowired
     private AccountsService accountsService;
+
+    @Autowired
     private TransactionsService transactionsService;
 
     @PostMapping("API/user/{userId}/account_created")
@@ -54,9 +56,20 @@ public class AccountsController {
         accountsService.deleteAccountById(accountId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PutMapping("API/accounts/deposit/{accountId}")
-    @ResponseBody
-    public  ResponseEntity<Accounts>accountDeposit(@PathVariable Long accountId, @RequestBody Transactions transaction){
-       return new ResponseEntity<Accounts>(accountsService.accountDeposit(accountId, transaction), HttpStatus.OK);
+    @PutMapping("API/accounts/deposit/")
+    public  ResponseEntity<Accounts>accountDeposit(@RequestBody Transactions transaction){
+       return new ResponseEntity<Accounts>(accountsService.accountDeposit(transaction), HttpStatus.OK);
+    }
+    @PutMapping("API/accounts/withdraw/")
+    public  ResponseEntity<Accounts>accountWithdraw(@RequestBody Transactions transaction){
+        return new ResponseEntity<>(accountsService.accountWithdraw(transaction),HttpStatus.OK);
+    }
+    @PutMapping("API/accounts/transferRecipient/")
+    public ResponseEntity<Accounts>transferRecipient(@RequestBody Transactions transaction) {
+        return new ResponseEntity<>(accountsService.transferRecipient(transaction), HttpStatus.OK);
+    }
+    @PutMapping("API/accounts/transferSender/")
+    public ResponseEntity<Accounts>transferSender(@RequestBody Transactions transaction) {
+        return new ResponseEntity<>(accountsService.transferSender(transaction), HttpStatus.OK);
     }
 }
