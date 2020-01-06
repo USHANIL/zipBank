@@ -1,7 +1,9 @@
 package com.finance.zipBank.Controllers;
 
 import com.finance.zipBank.Models.Accounts;
+import com.finance.zipBank.Models.Transactions;
 import com.finance.zipBank.Service.AccountsService;
+import com.finance.zipBank.Service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ public class AccountsController {
 
     @Autowired
     private AccountsService accountsService;
+    private TransactionsService transactionsService;
 
     @PostMapping("API/user/{userId}/account_created")
     public ResponseEntity<Accounts> createAccount(@PathVariable Long userId) {
@@ -50,5 +53,10 @@ public class AccountsController {
     public ResponseEntity<Accounts> deleteAccount(@PathVariable Long accountId) {
         accountsService.deleteAccountById(accountId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @PutMapping("API/accounts/deposit/{accountId}")
+    @ResponseBody
+    public  ResponseEntity<Accounts>accountDeposit(@PathVariable Long accountId, @RequestBody Transactions transaction){
+       return new ResponseEntity<Accounts>(accountsService.accountDeposit(accountId, transaction), HttpStatus.OK);
     }
 }
