@@ -17,6 +17,14 @@ public class DataSourceConfiguration {
     private static final String USER_NAME = System.getenv("DB_UN");
     private static final String PASSWORD = System.getenv("DB_PW");
     private static final String URL = System.getenv("DB_URL");
+*/
+    @Value("${spring.datasource.user}")
+    private String USER_NAME;
+    @Value("${spring.datasource.password}")
+    private String PASSWORD;
+
+    @Value("${spring.datasource.url}")
+    private String URL;
 
     @Bean
     public DataSource dataSource() {
@@ -30,7 +38,7 @@ public class DataSourceConfiguration {
         return new HikariDataSource(hikariConfig);
     }
 
- */
+ /*
 @Value("${spring.datasource.url}")
 private String dbUrl;
 
@@ -40,4 +48,6 @@ private String dbUrl;
         config.setJdbcUrl(dbUrl);
         return new HikariDataSource(config);
     }
+
+  */
 }
