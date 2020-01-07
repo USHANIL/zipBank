@@ -35,7 +35,7 @@ public class TransactionsController {
     public ResponseEntity<Iterable<Transactions>> listTop5TransactionsForUser(@PathVariable Long userId){
         return new ResponseEntity<>(transactionsService.listTop5ForUser(userId), HttpStatus.OK);
     }
-    @GetMapping("API/accounts/transactions/{transactionId}")
+    @GetMapping("/API/accounts/transactions/{transactionId}")
     public ResponseEntity<Transactions> listTransactionDetails(@PathVariable Long transactionId){
         return new ResponseEntity<>(transactionsService.listTransactionDetails(transactionId), HttpStatus.OK);
     }
