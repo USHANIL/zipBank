@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://zipbank.herokuapp.com")
 public class LoginController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class LoginController {
     @Autowired
     private UserRepo userRepo;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://zipbank.herokuapp.com")
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthentication(@RequestBody AuthenticationRequest authenticationRequest) throws Exception{
         try {
