@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication()
-public class ZipBankApplication extends SpringBootServletInitializer {
+public class ZipBankApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ZipBankApplication.class, args);
