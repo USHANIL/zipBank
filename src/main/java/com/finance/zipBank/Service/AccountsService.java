@@ -26,7 +26,7 @@ public class AccountsService {
 
     public Accounts createDummyAccount(Accounts account) {
         Accounts newAccount = new Accounts();
-        newAccount.setUserId(1L);
+        newAccount.setUserId(account.getUserId());
         newAccount.setAccountName(account.getAccountName());
         newAccount.setBalance(account.getBalance());
         newAccount.setType(account.getType());
