@@ -32,4 +32,7 @@ public class BillService {
     public Iterable<Bill>getBillsByUserId(Long id){
         return billRepository.findBillsByUserId(id);
     }
+    public Bill updateBill(Bill bill){
+         return billRepository.save(bill);
+    }
 }

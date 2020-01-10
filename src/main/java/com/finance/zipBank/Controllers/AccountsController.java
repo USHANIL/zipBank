@@ -33,7 +33,7 @@ public class AccountsController {
     }
     @PutMapping("API/accounts/{accountId}")
     public ResponseEntity<Accounts> updateAccount(@RequestBody Accounts account, @PathVariable Long accountId) {
-        return new ResponseEntity<>(accountsService.updateAccount(account, accountId), HttpStatus.OK);
+        return new ResponseEntity<>(accountsService.updateAccount(account), HttpStatus.OK);
     }
     @GetMapping("API/user/{userId}/accounts")
     public ResponseEntity<List<Accounts>> getAllAccountsByUserId(@PathVariable Long userId) {
