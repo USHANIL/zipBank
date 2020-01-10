@@ -5,10 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "flipcoinuser")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="userId", nullable = false, unique = true)
+   // @Column(name ="userId", nullable = false, unique = true)
     private Long userId;
     private String username;
     private String password;
