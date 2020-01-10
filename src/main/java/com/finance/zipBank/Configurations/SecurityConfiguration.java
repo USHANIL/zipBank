@@ -17,16 +17,28 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.session.SessionManagementFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
     @Autowired
     private MyUserDetailsService myUserDetailsService;
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("POST")
+                .allowedHeaders("Content-Type", "Authorization")
+                .allowCredentials(false)
+                .maxAge(32400);  // 9 hours max age
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
