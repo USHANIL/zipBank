@@ -49,4 +49,8 @@ public class TransactionsService {
         return transactionsRepo.findTop5ByUserIdOrderByTransactionDate(userId);
     }
 
+    public Transactions listTransactionDetails(Long transactionId){
+        return transactionsRepo.findById(transactionId).get();
+    }
+
 }

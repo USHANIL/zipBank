@@ -1,4 +1,4 @@
----
+
 #applications:
 #  - name: zipBank
 #    memory: 1G
@@ -8,4 +8,5 @@
 #    path: target/zipBank-0.0.1-SNAPSHOT.jar
 #    services:
 #     - zipBank
+
 

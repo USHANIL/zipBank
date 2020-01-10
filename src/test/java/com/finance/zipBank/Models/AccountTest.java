@@ -1,4 +1,4 @@
 package com.finance.zipBank.Models;
 
-public class Account {
+public class AccountTest {
 }

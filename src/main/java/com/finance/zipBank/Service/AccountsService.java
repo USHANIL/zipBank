@@ -1,6 +1,7 @@
 package com.finance.zipBank.Service;
 
 import com.finance.zipBank.Models.Accounts;
+import com.finance.zipBank.Models.Bill;
 import com.finance.zipBank.Models.Transactions;
 import com.finance.zipBank.Models.User;
 import com.finance.zipBank.Repositories.AccountsRepo;
@@ -26,7 +27,7 @@ public class AccountsService {
 
     public Accounts createDummyAccount(Accounts account) {
         Accounts newAccount = new Accounts();
-        newAccount.setUserId(1L);
+        newAccount.setUserId(account.getUserId());
         newAccount.setAccountName(account.getAccountName());
         newAccount.setBalance(account.getBalance());
         newAccount.setType(account.getType());
@@ -58,15 +59,15 @@ public class AccountsService {
         return accountsRepo.findTop5ByUserId(userId);
     }
 
-    public Accounts updateAccount(Accounts account, Long accountId) {
-        Accounts temp = getAccountById(accountId);
-        temp.setBalance(account.getBalance());
+    public Accounts updateAccount(Accounts account) {
+
+        /*temp.setBalance(account.getBalance());
         temp.setType(account.getType());
         temp.setAccountName(account.getAccountName());
         temp.setUserId(account.getUserId());
         temp.setAccountNumber(account.getAccountNumber());
-        temp.setTransactionsList(account.getTransactionsList());
-        return accountsRepo.save(temp);
+        temp.setTransactionsList(account.getTransactionsList());*/
+        return accountsRepo.save(account);
     }
 
     public Accounts accountDeposit(Transactions transactions) {
@@ -88,6 +89,7 @@ public class AccountsService {
     public Accounts transferRecipient(Transactions transactions) {
         Long accountId = transactions.getAccountNumber();
         Double amount = transactions.getAmount();
+
         Accounts account = getAccountById(accountId);
         if (transactions.getAmount() <= 0) {
             throw new IllegalArgumentException();
@@ -129,7 +131,6 @@ public class AccountsService {
         transactionsService.create(accountId, transactions2);
         return accountsRepo.save(account);
     }
-
 
     public Boolean deleteAccountById(Long accountId) {
         accountsRepo.deleteById(accountId);

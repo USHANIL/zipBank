@@ -37,5 +37,9 @@ public class BillController {
         billService.removeBill(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @PutMapping("API/bills/update")
+    public ResponseEntity<Bill>updateBill(@RequestBody Bill bill){
+        return new ResponseEntity<>(billService.updateBill(bill),HttpStatus.OK);
+    }
 
 }
