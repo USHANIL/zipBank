@@ -159,7 +159,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>com.example.demo.DemoApplication</mainClass>
+							<mainClass>com.finance.zipBank.ZipBankApplication</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

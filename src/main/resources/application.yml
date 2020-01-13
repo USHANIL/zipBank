@@ -30,9 +30,12 @@ spring:
   profiles: cloud
   datasource:
     driver-class-name: org.postgresql.Driver
+    initialization-mode: always
   jpa:
     hibernate:
       ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        hbm2ddl:
+          import_files: script.sql

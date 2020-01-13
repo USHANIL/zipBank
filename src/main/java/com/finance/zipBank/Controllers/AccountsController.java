@@ -27,9 +27,9 @@ public class AccountsController {
         return new ResponseEntity<>(accountsService.createAccount(userId), HttpStatus.CREATED);
     }
 
-    @PostMapping("API/accounts/dummy_created")
-    public ResponseEntity<Accounts>createDummy(@RequestBody Accounts account){
-        return new ResponseEntity<>(accountsService.createDummyAccount(account), HttpStatus.CREATED);
+    @PostMapping("API/accounts/create-account")
+    public ResponseEntity<Accounts>createAccount2(@RequestBody Accounts account){
+        return new ResponseEntity<>(accountsService.createAccount2(account), HttpStatus.CREATED);
     }
     @PutMapping("API/accounts/{accountId}")
     public ResponseEntity<Accounts> updateAccount(@RequestBody Accounts account, @PathVariable Long accountId) {

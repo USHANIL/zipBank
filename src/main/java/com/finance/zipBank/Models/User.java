@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table (name = "flipcoinuser")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

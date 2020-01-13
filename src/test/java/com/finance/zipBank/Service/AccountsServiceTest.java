@@ -45,7 +45,7 @@ public class AccountsServiceTest {
     public void createAccountTest() {
         Accounts expected = new Accounts(5L, 1250.00, "Checking");
         doReturn(expected).when(accountsRepo).save(any(Accounts.class));
-        Accounts actual = accountsService.createDummyAccount(stubAddNewAccountRequest());
+        Accounts actual = accountsService.createAccount2(stubAddNewAccountRequest());
         Assert.assertEquals(expected.toString(), actual.toString());
     }
 
@@ -54,7 +54,7 @@ public class AccountsServiceTest {
     public void CreateAccountWithNoReturnTest() {
         Accounts expected = new Accounts(5L, 1250.00, "Checking");
         doReturn(expected).when(accountsRepo).save(any(Accounts.class));
-        accountsService.createDummyAccount(stubAddNewAccountRequest());
+        accountsService.createAccount2(stubAddNewAccountRequest());
         ArgumentCaptor<Accounts> captor = ArgumentCaptor.forClass(Accounts.class);
         verify(accountsRepo, times(1)).save(captor.capture());
         Assert.assertEquals(expected.toString(), captor.getValue().toString());

@@ -24,14 +24,7 @@ public class AccountsService {
     @Autowired
     private TransactionsService transactionsService;
 
-    public Accounts createDummyAccount(Accounts account) {
-        Accounts newAccount = new Accounts();
-        newAccount.setUserId(account.getUserId());
-        newAccount.setAccountName(account.getAccountName());
-        newAccount.setBalance(account.getBalance());
-        newAccount.setType(account.getType());
-        return accountsRepo.save(newAccount);
-    }
+
 
     public Accounts createAccount(Long id) {
         User user = userRepo.findById(id).get();
@@ -39,6 +32,15 @@ public class AccountsService {
         newAccount.setUserId(user.getUserId());
         newAccount.setBalance(0.0);
         newAccount.setType("Checking");
+        return accountsRepo.save(newAccount);
+    }
+
+    public Accounts createAccount2(Accounts account) {
+        Accounts newAccount = new Accounts();
+        newAccount.setUserId(account.getUserId());
+        newAccount.setAccountName(account.getAccountName());
+        newAccount.setBalance(account.getBalance());
+        newAccount.setType(account.getType());
         return accountsRepo.save(newAccount);
     }
 
